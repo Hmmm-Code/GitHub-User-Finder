@@ -5,6 +5,7 @@ import UserItem from "./UserItem";
 
 const UserResults = () => {
   const { users, loading } = useContext(GithubContext);
+  console.log(users);
 
   if (!loading) {
     return (

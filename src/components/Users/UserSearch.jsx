@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import GithubContext from "../../Context/GitHub/GithubContext";
 import AlertContext from "../../Context/Alerts/AlertContext";
 import { searchUsers } from "../../Context/GitHub/GithubAction";
+import { FaSearch } from "react-icons/fa";
 
 const UserSearch = () => {
   const [text, setText] = useState("");
@@ -22,6 +23,7 @@ const UserSearch = () => {
 
       const users = await searchUsers(text);
       dispatch({ type: "GET_USERS", payload: users });
+      console.log(users);
       setText("");
     }
   };
@@ -40,9 +42,9 @@ const UserSearch = () => {
               />
               <button
                 type="submit"
-                className="absolute top-0 right-0 rounded-l-none w-36 btn btn-lg"
+                className="absolute top-0 right-0 w-16 rounded-l-none   btn-lg"
               >
-                GO
+                <FaSearch className="icon-cog  " />
               </button>
             </div>
           </div>
